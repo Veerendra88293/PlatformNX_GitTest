@@ -1,0 +1,205 @@
+{
+  "id": "xIatPwxPwYwmMiLWDGnMn",
+  "name": "Print Hello World Response",
+  "workflowName": "Print Hello World Response",
+  "itemType": "workflow",
+  "appId": "lWagWrjSjpJtDZabeuyjg",
+  "folderId": "aHmQYdDcARaVkwDtbxAyE",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "DkmUYY_7-BSWc33v3n-J0",
+      "stepName": "Response Activity",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Sends a response with the message 'helloworld'.",
+      "deletable": true,
+      "config": {
+        "activityName": "Response",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "Response Activity",
+        "stream": false,
+        "description": "Sends a response with the message 'helloworld'.",
+        "input_activity": [
+          "6byBmRjgAA6yHxQQOGN47"
+        ],
+        "output_activities": [],
+        "sourceSchemas": [
+          "xeBwCPmdTanOjJjMRIEKU"
+        ],
+        "is_custom": false,
+        "targetSchema": "LMbTZYuuRXornNYffzsQf",
+        "config.name": "Response Activity",
+        "showHttpFormSelectionPanel": false
+      }
+    },
+    {
+      "id": "mlBoTsvZCmTCTHtQqmBpf",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "deletable": true,
+      "config": {
+        "activityGroup": "Common",
+        "activityName": "End",
+        "description": "Defines the end of the workflow execution.",
+        "sourceSchemas": [
+          "xeBwCPmdTanOjJjMRIEKU",
+          "DkmUYY_7-BSWc33v3n-J0"
+        ],
+        "input_activity": [
+          "DkmUYY_7-BSWc33v3n-J0"
+        ],
+        "output_activities": [],
+        "activityType": "END",
+        "is_custom": false,
+        "name": "End"
+      }
+    },
+    {
+      "id": "xeBwCPmdTanOjJjMRIEKU",
+      "stepName": "REST Service Trigger",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "deletable": true,
+      "config": {
+        "name": "REST Service Trigger",
+        "path": "/api/launches",
+        "method": [
+          "GET"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "description": "Defines a REST API service endpoint that triggers the workflow to respond with 'helloworld'.",
+        "params": {
+          "pathParams": [],
+          "queryParams": []
+        },
+        "headers": [],
+        "outputMapping": {},
+        "activityGroup": "HTTP",
+        "activityName": "RESTService",
+        "input_activity": [],
+        "output_activities": [
+          "DkmUYY_7-BSWc33v3n-J0"
+        ],
+        "activityType": "EVENT_SOURCE",
+        "sourceSchemas": [],
+        "is_custom": false,
+        "pathParams": [],
+        "queryParams": []
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "transition-0aa73bf0-4278-498a-bfc3-9e42cf9d4497",
+      "from": "DkmUYY_7-BSWc33v3n-J0",
+      "to": "mlBoTsvZCmTCTHtQqmBpf",
+      "handleMap": {
+        "source": "DkmUYY_7-BSWc33v3n-J0_2",
+        "target": "mlBoTsvZCmTCTHtQqmBpf_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#73d13d"
+    },
+    {
+      "id": "transition-484e7eb4-dfbe-43cb-a77c-d22edc536ede",
+      "from": "xeBwCPmdTanOjJjMRIEKU",
+      "to": "DkmUYY_7-BSWc33v3n-J0",
+      "handleMap": {
+        "source": "xeBwCPmdTanOjJjMRIEKU_1",
+        "target": "DkmUYY_7-BSWc33v3n-J0_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#73d13d"
+    }
+  ],
+  "diagram": {
+    "DkmUYY_7-BSWc33v3n-J0": {
+      "x": 230,
+      "y": 50,
+      "handles": [
+        {
+          "id": "DkmUYY_7-BSWc33v3n-J0_1",
+          "type": "target",
+          "position": "left"
+        },
+        {
+          "id": "DkmUYY_7-BSWc33v3n-J0_2",
+          "type": "source",
+          "position": "right"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "mlBoTsvZCmTCTHtQqmBpf": {
+      "x": 410,
+      "y": 50,
+      "handles": [
+        {
+          "id": "mlBoTsvZCmTCTHtQqmBpf_1",
+          "type": "source",
+          "position": "left"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "xeBwCPmdTanOjJjMRIEKU": {
+      "x": 50,
+      "y": 50,
+      "handles": [
+        {
+          "id": "xeBwCPmdTanOjJjMRIEKU_1",
+          "type": "source",
+          "position": "right"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    }
+  },
+  "mappings": {
+    "DkmUYY_7-BSWc33v3n-J0": {
+      "metaInfo": {
+        "id": "DkmUYY_7-BSWc33v3n-J0",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Response Activity"
+      },
+      "mappings": {
+        "Response_Activity": {
+          "headers": {
+            "Content-Type": "$.REST_Service_Trigger.headers.Content-Type",
+            "Cookie": "$.REST_Service_Trigger.headers.Cookie"
+          },
+          "body": {
+            "__expr__": "$.REST_Service_Trigger.body",
+            "name": "\"hello\""
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Print Hello World Response",
+    "description": "in the hello word build the workflow which prints or give response has helloworld"
+  }
+}
