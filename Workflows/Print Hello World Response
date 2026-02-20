@@ -4,7 +4,7 @@
   "workflowName": "Print Hello World Response",
   "itemType": "workflow",
   "appId": "lWagWrjSjpJtDZabeuyjg",
-  "folderId": "aHmQYdDcARaVkwDtbxAyE",
+  "folderId": "xhVzdrirJGukXnikcLBFf",
   "type": "ORCHESTRATION",
   "version": "0.0.1",
   "steps": [
@@ -42,10 +42,12 @@
       "stepType": "END",
       "icon": "",
       "indicator": "",
+      "description": "Defines the end of the workflow execution.",
       "deletable": true,
       "config": {
-        "activityGroup": "Common",
         "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
         "description": "Defines the end of the workflow execution.",
         "sourceSchemas": [
           "xeBwCPmdTanOjJjMRIEKU",
@@ -55,9 +57,10 @@
           "DkmUYY_7-BSWc33v3n-J0"
         ],
         "output_activities": [],
-        "activityType": "END",
         "is_custom": false,
-        "name": "End"
+        "name": "End",
+        "targetSchema": "LMbTZYuuRXornNYffzsQf",
+        "config.name": "End"
       }
     },
     {
@@ -66,34 +69,39 @@
       "stepType": "EVENT_SOURCE",
       "icon": "",
       "indicator": "",
+      "description": "Defines a REST API service endpoint that triggers the workflow to respond with 'helloworld'.",
       "deletable": true,
       "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
         "name": "REST Service Trigger",
-        "path": "/api/launches",
+        "description": "Defines a REST API service endpoint that triggers the workflow to respond with 'helloworld'.",
+        "path": "/api/launches/v2/{name}",
         "method": [
           "GET"
         ],
         "allowedMediaTypes": [
           "application/json"
         ],
-        "description": "Defines a REST API service endpoint that triggers the workflow to respond with 'helloworld'.",
-        "params": {
-          "pathParams": [],
-          "queryParams": []
-        },
+        "params.pathParams": [],
+        "params.queryParams": [],
         "headers": [],
-        "outputMapping": {},
-        "activityGroup": "HTTP",
-        "activityName": "RESTService",
         "input_activity": [],
         "output_activities": [
           "DkmUYY_7-BSWc33v3n-J0"
         ],
-        "activityType": "EVENT_SOURCE",
         "sourceSchemas": [],
         "is_custom": false,
-        "pathParams": [],
-        "queryParams": []
+        "pathParams": [
+          {
+            "name": "name",
+            "type": "text"
+          }
+        ],
+        "queryParams": [],
+        "config.name": "REST Service Trigger",
+        "showHttpFormSelectionPanel": false
       }
     }
   ],
@@ -184,14 +192,24 @@
       },
       "mappings": {
         "Response_Activity": {
-          "headers": {
-            "Content-Type": "$.REST_Service_Trigger.headers.Content-Type",
-            "Cookie": "$.REST_Service_Trigger.headers.Cookie"
-          },
           "body": {
-            "__expr__": "$.REST_Service_Trigger.body",
-            "name": "\"hello\""
+            "name": "concat($.REST_Service_Trigger.pathParams.name,'hello')"
           }
+        }
+      },
+      "attributes": {}
+    },
+    "mlBoTsvZCmTCTHtQqmBpf": {
+      "metaInfo": {
+        "id": "mlBoTsvZCmTCTHtQqmBpf",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End"
+      },
+      "mappings": {
+        "End": {
+          "name": "$.Response_Activity.body.name"
         }
       },
       "attributes": {}
