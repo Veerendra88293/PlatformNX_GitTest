@@ -4,7 +4,7 @@
   "workflowName": "Print Hello World Response",
   "itemType": "workflow",
   "appId": "lWagWrjSjpJtDZabeuyjg",
-  "folderId": "xhVzdrirJGukXnikcLBFf",
+  "folderId": "MbytvkyeYUiJfkfqIlOtm",
   "type": "ORCHESTRATION",
   "version": "0.0.1",
   "steps": [
@@ -21,14 +21,15 @@
         "activityGroup": "Common",
         "activityType": "SIMPLE",
         "name": "Response Activity",
-        "stream": false,
         "description": "Sends a response with the message 'helloworld'.",
+        "stream": false,
+        "streamResource": "ref:{\"id\":\"\",\"name\":\"\"}",
         "input_activity": [
           "6byBmRjgAA6yHxQQOGN47"
         ],
         "output_activities": [],
         "sourceSchemas": [
-          "xeBwCPmdTanOjJjMRIEKU"
+          "UlWAKtoCaBkRDDOrJfhmo"
         ],
         "is_custom": false,
         "targetSchema": "LMbTZYuuRXornNYffzsQf",
@@ -50,8 +51,8 @@
         "activityType": "END",
         "description": "Defines the end of the workflow execution.",
         "sourceSchemas": [
-          "xeBwCPmdTanOjJjMRIEKU",
-          "DkmUYY_7-BSWc33v3n-J0"
+          "DkmUYY_7-BSWc33v3n-J0",
+          "UlWAKtoCaBkRDDOrJfhmo"
         ],
         "input_activity": [
           "DkmUYY_7-BSWc33v3n-J0"
@@ -64,45 +65,32 @@
       }
     },
     {
-      "id": "xeBwCPmdTanOjJjMRIEKU",
-      "stepName": "REST Service Trigger",
+      "id": "UlWAKtoCaBkRDDOrJfhmo",
+      "stepName": "Schedule",
       "stepType": "EVENT_SOURCE",
       "icon": "",
       "indicator": "",
-      "description": "Defines a REST API service endpoint that triggers the workflow to respond with 'helloworld'.",
+      "description": "This activity is for scheduling.",
       "deletable": true,
       "config": {
-        "activityName": "RESTService",
-        "activityGroup": "HTTP",
+        "name": "Schedule",
+        "description": "",
+        "type": "Schedule",
+        "startOn": "",
+        "startAt": "",
+        "runInterval": "* * * 1 *",
+        "dateToEndSchedule": false,
+        "endOn": "",
+        "endAt": "",
+        "maxFailures": 2,
         "activityType": "EVENT_SOURCE",
-        "name": "REST Service Trigger",
-        "description": "Defines a REST API service endpoint that triggers the workflow to respond with 'helloworld'.",
-        "path": "/api/launches/v2/{name}",
-        "method": [
-          "GET"
-        ],
-        "allowedMediaTypes": [
-          "application/json"
-        ],
-        "params.pathParams": [],
-        "params.queryParams": [],
-        "headers": [],
-        "input_activity": [],
-        "output_activities": [
-          "DkmUYY_7-BSWc33v3n-J0"
-        ],
-        "sourceSchemas": [],
-        "is_custom": false,
-        "pathParams": [
-          {
-            "name": "name",
-            "type": "text"
-          }
-        ],
-        "queryParams": [],
-        "config.name": "REST Service Trigger",
-        "showHttpFormSelectionPanel": false
-      }
+        "activityGroup": "Common",
+        "activityName": "Schedule",
+        "activityStatus": "APPROVED",
+        "config.name": "Schedule",
+        "sourceSchemas": []
+      },
+      "activityCluster": null
     }
   ],
   "transitions": [
@@ -122,10 +110,10 @@
     },
     {
       "id": "transition-484e7eb4-dfbe-43cb-a77c-d22edc536ede",
-      "from": "xeBwCPmdTanOjJjMRIEKU",
+      "from": "UlWAKtoCaBkRDDOrJfhmo",
       "to": "DkmUYY_7-BSWc33v3n-J0",
       "handleMap": {
-        "source": "xeBwCPmdTanOjJjMRIEKU_1",
+        "source": "UlWAKtoCaBkRDDOrJfhmo_1",
         "target": "DkmUYY_7-BSWc33v3n-J0_1"
       },
       "name": "",
@@ -167,14 +155,14 @@
       "sourcePosition": null,
       "targetPosition": "left"
     },
-    "xeBwCPmdTanOjJjMRIEKU": {
+    "UlWAKtoCaBkRDDOrJfhmo": {
       "x": 50,
       "y": 50,
       "handles": [
         {
-          "id": "xeBwCPmdTanOjJjMRIEKU_1",
           "type": "source",
-          "position": "right"
+          "position": "right",
+          "id": "UlWAKtoCaBkRDDOrJfhmo_1"
         }
       ],
       "sourcePosition": "right",
