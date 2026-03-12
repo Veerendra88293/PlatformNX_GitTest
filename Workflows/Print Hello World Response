@@ -4,7 +4,7 @@
   "workflowName": "Print Hello World Response",
   "itemType": "workflow",
   "appId": "lWagWrjSjpJtDZabeuyjg",
-  "folderId": "eDahVubyQbxDLSvCPoRfC",
+  "folderId": "TtOtCdTGyfBWJUQlDluZq",
   "type": "ORCHESTRATION",
   "version": "0.0.1",
   "steps": [
@@ -77,7 +77,7 @@
         "activityGroup": "Common",
         "activityType": "EVENT_SOURCE",
         "dateToEndSchedule": false,
-        "maxFailures": 3,
+        "maxFailures": 4,
         "name": "Schedule",
         "description": "",
         "type": "Schedule",
